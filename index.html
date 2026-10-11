@@ -3,64 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sunnydale School</title>
+    <title>Sunnydale School - Official Portal</title>
     
-    <!-- 1. Enhance the Page Title & 2. Customize Fonts and Section Colors -->
+    <!-- 1 & 2: Dahili CSS kuralları, başlık ve bölüm renkleri -->
     <style>
-        /* Body genel fontu */
+        /* 2. Madde: body font ayarı */
         body {
             font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            margin: 20px auto;
+            max-width: 900px;
+            padding: 0 15px;
         }
 
-        /* 1. Başlık (h1) stilleri */
+        /* 1. Madde: h1 kuralları */
         h1 {
             font-size: 24px;
             font-weight: bold;
             color: #1E90FF;
+            border-bottom: 2px solid #1E90FF;
+            padding-bottom: 8px;
         }
 
-        /* 2. Bölüm başlıkları (h2) için özel renkler */
+        /* 2. Madde: h2 başlık renkleri */
         .mission-heading {
             color: #32CD32;
         }
 
         #upcoming-events {
             color: #FFA07A;
-            /* 5. ID ile arka plan rengi */
+            /* 5. Madde: ID ile arka plan rengi */
             background-color: #FFFFE0;
+            padding: 8px 12px;
+            border-radius: 4px;
         }
 
         .contact-heading {
             color: #20B2AA;
         }
 
-        /* 5. Açık hava etkinlikleri (.outdoor class) stilleri */
+        /* Liste düzeni ve aralıklar */
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+            padding: 6px 10px;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+
+        /* 5. Madde: Açık hava etkinlikleri (.outdoor class) stilleri */
         .outdoor {
             background-color: #AFEEEE;
             padding: 5px;
             border: 1px solid #B0E0E6;
+            border-radius: 4px;
         }
 
-        /* 7. İletişim kutusu (.section class) stilleri */
+        /* 7. Madde: İletişim kutusu (.section class) stilleri */
         .section {
             background-color: #f8f3f3;
             padding: 10px;
+            border-radius: 6px;
+            margin-top: 25px;
+        }
+
+        .section p {
+            margin: 6px 0;
+        }
+
+        .section a {
+            color: #1E90FF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .section a:hover {
+            text-decoration: underline;
+        }
+
+        .info-card {
+            background-color: #fafafa;
+            border-left: 4px solid #1E90FF;
+            padding: 10px 15px;
+            margin: 15px 0;
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. Page Title -->
+    <!-- 1. Enhance the Page Title -->
     <h1>Sunnydale School</h1>
+    <p><em>Empowering curious minds, inspiring global citizens, and fostering lifelong learners.</em></p>
 
     <!-- Mission Statement Section -->
     <h2 class="mission-heading">Mission Statement</h2>
-    <p>Our mission is to foster a nurturing and inspiring environment where every student can achieve their full potential.</p>
+    <div class="info-card">
+        <p>At Sunnydale School, our mission is to create a dynamic and inclusive learning community where every student is challenged to achieve academic excellence, develop character, and embrace creative innovation. We prepare our learners to lead purposeful lives with integrity and empathy.</p>
+    </div>
 
-    <!-- 5. ID eklenmiş Upcoming Events Başlığı -->
-    <h2 id="upcoming-events">Upcoming Events</h2>
+    <!-- About & Academic Highlights (İçeriği zenginleştiren bölüm) -->
+    <h2 class="mission-heading">Academic Pillars & Programs</h2>
+    <p>Our comprehensive curriculum bridges rigorous academics with hands-on discovery across diverse disciplines:</p>
     <ul>
-        <!-- 3. Inline style ile span ve 6. data-event-type / title özellikleri -->
+        <li><strong>STEM & Robotics:</strong> Advanced labs fostering algorithmic thinking, coding, and robotics competitions.</li>
+        <li><strong>Humanities & Arts:</strong> Comprehensive programs in literature, creative writing, visual arts, and music.</li>
+        <li><strong>Athletics & Leadership:</strong> Competitive sports leagues alongside student council and peer-mentorship programs.</li>
+    </ul>
+
+    <!-- 5. Style Specific Sections with IDs (Upcoming Events) -->
+    <h2 id="upcoming-events">Upcoming Events</h2>
+    <p>Check out our semester calendar. Hover over any activity to see its location type:</p>
+    
+    <!-- 3, 5 & 6. Maddeler: Etkinlikler, indoor/outdoor tipleri, data attribute, title ve span tarihleri -->
+    <ul>
         <li data-event-type="indoor" title="Event Type: Indoor">
             Science Fair - <span style="font-weight: bold; color: red;">June 10</span>
         </li>
@@ -70,14 +129,35 @@
         <li class="outdoor" data-event-type="outdoor" title="Event Type: Outdoor">
             Sports Day - <span style="font-weight: bold; color: red;">June 20</span>
         </li>
+        <li data-event-type="indoor" title="Event Type: Indoor">
+            Annual Debate Championship - <span style="font-weight: bold; color: red;">June 24</span>
+        </li>
+        <li class="outdoor" data-event-type="outdoor" title="Event Type: Outdoor">
+            Campus Spring Picnic & Music Gala - <span style="font-weight: bold; color: red;">June 28</span>
+        </li>
+        <li data-event-type="indoor" title="Event Type: Indoor">
+            Summer Coding & Robotics Hackathon - <span style="font-weight: bold; color: red;">July 05</span>
+        </li>
+        <li class="outdoor" data-event-type="outdoor" title="Event Type: Outdoor">
+            Cross-Country Athletics Meet - <span style="font-weight: bold; color: red;">July 12</span>
+        </li>
     </ul>
 
-    <!-- 7. Contact Us kutusu (.section class'ına sahip div) -->
+    <!-- Important Notice / Announcement -->
+    <div class="info-card">
+        <p><strong>Campus Announcement:</strong> Registration for the Summer Enrichment Clubs opens next week. Please review your portal credentials before the deadline.</p>
+    </div>
+
+    <!-- 7. Add a Box for Contact Info and Make It Look Nice (.section div) -->
     <div class="section">
+        <!-- 2. Customize Section Colors (Contact Us h2) -->
         <h2 class="contact-heading">Contact Us</h2>
-        <!-- 4. Tooltip (title attribute) eklenmiş iletişim bilgileri -->
-        <p>Email: <a href="mailto:info@sunnydale.edu" title="Click to copy email">info@sunnydale.edu</a></p>
-        <p>Phone: <span title="Click to copy email">(555) 123-4567</span></p>
+        <p><strong>Campus Address:</strong> 124 Sunnydale Way, Building B, North Wing</p>
+        
+        <!-- 4. Make Contact Information Interactive (title attribute ile tooltip) -->
+        <p><strong>Email:</strong> <a href="mailto:info@sunnydale.edu" title="Click to copy email">info@sunnydale.edu</a></p>
+        <p><strong>Phone:</strong> <span style="cursor: pointer;" title="Click to copy email">(555) 123-4567</span></p>
+        <p><strong>Office Hours:</strong> Monday – Friday, 08:30 AM – 05:00 PM</p>
         
         <!-- 4. Yönergede istenen JavaScript davranışı açıklama yorumu -->
         <!-- Imagine clicking here shows a message: 'Thanks for reaching out!' -->
