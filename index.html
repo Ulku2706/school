@@ -5,78 +5,152 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sunnydale School - Official Portal</title>
     
-    <!-- 1 & 2: Dahili CSS kuralları, başlık ve bölüm renkleri -->
     <style>
-        /* 2. Madde: body font ayarı */
+        /* Genel sayfa düzeni ve siyah arka plan */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333333;
-            margin: 20px auto;
-            max-width: 900px;
-            padding: 0 15px;
+            background-color: #0f1115; /* Modern mat koyu/siyah arka plan */
+            color: #e0e0e0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        /* 1. Madde: h1 kuralları */
+        .main-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            width: 100%;
+        }
+
+        /* 1. Madde: Ana başlık (ortalandı) */
         h1 {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: bold;
             color: #1E90FF;
-            border-bottom: 2px solid #1E90FF;
-            padding-bottom: 8px;
+            text-align: center;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #222d3d;
         }
 
-        /* 2. Madde: h2 başlık renkleri */
+        /* 2. Madde: h2 başlık renkleri ve boyutları */
         .mission-heading {
+            font-size: 19px; /* Biraz daha küçük ve dengeli */
             color: #32CD32;
-        }
-
-        #upcoming-events {
-            color: #FFA07A;
-            /* 5. Madde: ID ile arka plan rengi */
-            background-color: #FFFFE0;
-            padding: 8px 12px;
-            border-radius: 4px;
-        }
-
-        .contact-heading {
-            color: #20B2AA;
-        }
-
-        /* Liste düzeni ve aralıklar */
-        ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        li {
             margin-bottom: 8px;
-            padding: 6px 10px;
-            border-bottom: 1px dashed #e0e0e0;
+        }
+
+        .mission-box {
+            background-color: #161a22;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-left: 4px solid #32CD32;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 35px;
+        }
+
+        /* 5. Madde: ID ile stillendirilen Upcoming Events başlığı */
+        #upcoming-events {
+            font-size: 20px;
+            color: #FFA07A;
+            background-color: #FFFFE0; /* Belgede istenen sarı arka plan */
+            padding: 8px 15px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        /* 5 günlük etkinlik ızgarası (Grid) */
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .day-column {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 14px;
+        }
+
+        .day-column h3 {
+            color: #58a6ff;
+            font-size: 14px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #21262d;
+            padding-bottom: 6px;
+        }
+
+        .day-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .day-column li {
+            font-size: 13px;
+            line-height: 1.4;
+            color: #c9d1d9;
+            padding: 6px 8px;
+            border-radius: 4px;
+            background-color: #0d1117;
+            border: 1px solid #21262d;
         }
 
         /* 5. Madde: Açık hava etkinlikleri (.outdoor class) stilleri */
         .outdoor {
-            background-color: #AFEEEE;
+            background-color: #AFEEEE !important;
+            color: #003333 !important; /* Açık renkte metin okunurluğu için */
             padding: 5px;
             border: 1px solid #B0E0E6;
-            border-radius: 4px;
         }
 
-        /* 7. Madde: İletişim kutusu (.section class) stilleri */
+        /* 7. Madde: En altta bulunan Contact Us (.section class) stilleri */
         .section {
-            background-color: #f8f3f3;
+            background-color: #f8f3f3; /* Belgede istenen açık ton */
             padding: 10px;
-            border-radius: 6px;
-            margin-top: 25px;
+            width: 100%;
+            margin-top: auto;
+            border-top: 3px solid #20B2AA;
+            color: #222222; /* Koyu metin rengi */
         }
 
-        .section p {
-            margin: 6px 0;
+        .section-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            padding: 0 10px;
+        }
+
+        .contact-heading {
+            font-size: 18px;
+            color: #20B2AA;
+            margin-bottom: 4px;
         }
 
         .section a {
-            color: #1E90FF;
+            color: #0969da;
             text-decoration: none;
             font-weight: bold;
         }
@@ -85,80 +159,111 @@
             text-decoration: underline;
         }
 
-        .info-card {
-            background-color: #fafafa;
-            border-left: 4px solid #1E90FF;
-            padding: 10px 15px;
-            margin: 15px 0;
+        .contact-details {
+            font-size: 14px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. Enhance the Page Title -->
-    <h1>Sunnydale School</h1>
-    <p><em>Empowering curious minds, inspiring global citizens, and fostering lifelong learners.</em></p>
+    <div class="main-wrapper">
+        <!-- 1. Ortalanmış Ana Başlık -->
+        <h1>Sunnydale School</h1>
 
-    <!-- Mission Statement Section -->
-    <h2 class="mission-heading">Mission Statement</h2>
-    <div class="info-card">
-        <p>At Sunnydale School, our mission is to create a dynamic and inclusive learning community where every student is challenged to achieve academic excellence, develop character, and embrace creative innovation. We prepare our learners to lead purposeful lives with integrity and empathy.</p>
+        <!-- 2. Mission Statement (Aynı yerinde, boyutu dengelenmiş) -->
+        <h2 class="mission-heading">Mission Statement</h2>
+        <div class="mission-box">
+            Our mission is to foster a nurturing and inspiring environment where every student can achieve their full potential, develop critical thinking, and lead with empathy.
+        </div>
+
+        <!-- 5. Upcoming Events Başlığı -->
+        <h2 id="upcoming-events">Upcoming Events</h2>
+
+        <!-- 5 Günlük Etkinlik Programı (Her günde 2 etkinlik) -->
+        <div class="schedule-grid">
+            <!-- Gün 1 -->
+            <div class="day-column">
+                <h3>Day 1 - Monday</h3>
+                <ul>
+                    <li data-event-type="indoor" title="Event Type: Indoor">
+                        Science Fair - <span style="font-weight: bold; color: red;">June 10</span>
+                    </li>
+                    <li data-event-type="indoor" title="Event Type: Indoor">
+                        Math Olympiad - <span style="font-weight: bold; color: red;">June 10</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Gün 2 -->
+            <div class="day-column">
+                <h3>Day 2 - Tuesday</h3>
+                <ul>
+                    <li class="outdoor" data-event-type="outdoor" title="Event Type: Outdoor">
+                        Art Exhibition - <span style="font-weight: bold; color: red;">June 15</span>
+                    </li>
+                    <li data-event-type="indoor" title="Event Type: Indoor">
+                        Debate Session - <span style="font-weight: bold; color: red;">June 15</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Gün 3 -->
+            <div class="day-column">
+                <h3>Day 3 - Wednesday</h3>
+                <ul>
+                    <li class="outdoor" data-event-type="outdoor" title="Event Type: Outdoor">
+                        Sports Day - <span style="font-weight: bold; color: red;">June 20</span>
+                    </li>
+                    <li class="outdoor" data-event-type="outdoor" title="Event Type: Outdoor">
+                        Archery Match - <span style="font-weight: bold; color: red;">June 20</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Gün 4 -->
+            <div class="day-column">
+                <h3>Day 4 - Thursday</h3>
+                <ul>
+                    <li data-event-type="indoor" title="Event Type: Indoor">
+                        Robotics Demo - <span style="font-weight: bold; color: red;">June 24</span>
+                    </li>
+                    <li class="outdoor" data-event-type="outdoor" title="Event Type: Outdoor">
+                        Campus Run - <span style="font-weight: bold; color: red;">June 24</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Gün 5 -->
+            <div class="day-column">
+                <h3>Day 5 - Friday</h3>
+                <ul>
+                    <li data-event-type="indoor" title="Event Type: Indoor">
+                        Music Recital - <span style="font-weight: bold; color: red;">June 28</span>
+                    </li>
+                    <li class="outdoor" data-event-type="outdoor" title="Event Type: Outdoor">
+                        Gala Picnic - <span style="font-weight: bold; color: red;">June 28</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 
-    <!-- About & Academic Highlights (İçeriği zenginleştiren bölüm) -->
-    <h2 class="mission-heading">Academic Pillars & Programs</h2>
-    <p>Our comprehensive curriculum bridges rigorous academics with hands-on discovery across diverse disciplines:</p>
-    <ul>
-        <li><strong>STEM & Robotics:</strong> Advanced labs fostering algorithmic thinking, coding, and robotics competitions.</li>
-        <li><strong>Humanities & Arts:</strong> Comprehensive programs in literature, creative writing, visual arts, and music.</li>
-        <li><strong>Athletics & Leadership:</strong> Competitive sports leagues alongside student council and peer-mentorship programs.</li>
-    </ul>
-
-    <!-- 5. Style Specific Sections with IDs (Upcoming Events) -->
-    <h2 id="upcoming-events">Upcoming Events</h2>
-    <p>Check out our semester calendar. Hover over any activity to see its location type:</p>
-    
-    <!-- 3, 5 & 6. Maddeler: Etkinlikler, indoor/outdoor tipleri, data attribute, title ve span tarihleri -->
-    <ul>
-        <li data-event-type="indoor" title="Event Type: Indoor">
-            Science Fair - <span style="font-weight: bold; color: red;">June 10</span>
-        </li>
-        <li class="outdoor" data-event-type="outdoor" title="Event Type: Outdoor">
-            Art Exhibition - <span style="font-weight: bold; color: red;">June 15</span>
-        </li>
-        <li class="outdoor" data-event-type="outdoor" title="Event Type: Outdoor">
-            Sports Day - <span style="font-weight: bold; color: red;">June 20</span>
-        </li>
-        <li data-event-type="indoor" title="Event Type: Indoor">
-            Annual Debate Championship - <span style="font-weight: bold; color: red;">June 24</span>
-        </li>
-        <li class="outdoor" data-event-type="outdoor" title="Event Type: Outdoor">
-            Campus Spring Picnic & Music Gala - <span style="font-weight: bold; color: red;">June 28</span>
-        </li>
-        <li data-event-type="indoor" title="Event Type: Indoor">
-            Summer Coding & Robotics Hackathon - <span style="font-weight: bold; color: red;">July 05</span>
-        </li>
-        <li class="outdoor" data-event-type="outdoor" title="Event Type: Outdoor">
-            Cross-Country Athletics Meet - <span style="font-weight: bold; color: red;">July 12</span>
-        </li>
-    </ul>
-
-    <!-- Important Notice / Announcement -->
-    <div class="info-card">
-        <p><strong>Campus Announcement:</strong> Registration for the Summer Enrichment Clubs opens next week. Please review your portal credentials before the deadline.</p>
-    </div>
-
-    <!-- 7. Add a Box for Contact Info and Make It Look Nice (.section div) -->
+    <!-- 7. Sayfanın en altına konumlandırılmış Contact Us Kutusu (.section class) -->
     <div class="section">
-        <!-- 2. Customize Section Colors (Contact Us h2) -->
-        <h2 class="contact-heading">Contact Us</h2>
-        <p><strong>Campus Address:</strong> 124 Sunnydale Way, Building B, North Wing</p>
-        
-        <!-- 4. Make Contact Information Interactive (title attribute ile tooltip) -->
-        <p><strong>Email:</strong> <a href="mailto:info@sunnydale.edu" title="Click to copy email">info@sunnydale.edu</a></p>
-        <p><strong>Phone:</strong> <span style="cursor: pointer;" title="Click to copy email">(555) 123-4567</span></p>
-        <p><strong>Office Hours:</strong> Monday – Friday, 08:30 AM – 05:00 PM</p>
-        
+        <div class="section-inner">
+            <div>
+                <h2 class="contact-heading">Contact Us</h2>
+                <small style="color: #666;">Sunnydale Central Administration Office</small>
+            </div>
+            <!-- 4. Tooltip (title attribute) ve iletişim verileri -->
+            <div class="contact-details">
+                <p>Email: <a href="mailto:info@sunnydale.edu" title="Click to copy email">info@sunnydale.edu</a></p>
+                <p>Phone: <span style="cursor: pointer;" title="Click to copy email">(555) 123-4567</span></p>
+            </div>
+        </div>
         <!-- 4. Yönergede istenen JavaScript davranışı açıklama yorumu -->
         <!-- Imagine clicking here shows a message: 'Thanks for reaching out!' -->
     </div>
