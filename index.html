@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sunnydale School - Official Portal</title>
+    <title>Piri Reis Üniversitesi - Ders ve Etkinlik Portalı</title>
     
     <style>
-        /* Genel sayfa düzeni ve siyah arka plan */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -15,7 +14,7 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #0f1115; /* Modern mat koyu/siyah arka plan */
+            background-color: #0f1115;
             color: #e0e0e0;
             min-height: 100vh;
             display: flex;
@@ -30,22 +29,37 @@
             width: 100%;
         }
 
-        /* 1. Madde: Ana başlık (ortalandı) */
-        h1 {
-            font-size: 28px;
-            font-weight: bold;
-            color: #1E90FF;
-            text-align: center;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+        /* 1. Madde: Ortalanmış logo ve ana başlık alanı */
+        .brand-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
             margin-bottom: 25px;
             padding-bottom: 12px;
             border-bottom: 2px solid #222d3d;
         }
 
-        /* 2. Madde: h2 başlık renkleri ve boyutları */
+        .university-logo {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            border-radius: 50%;
+            background-color: #ffffff;
+            padding: 3px;
+        }
+
+        h1 {
+            font-size: 26px;
+            font-weight: bold;
+            color: #1E90FF;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* 2. Madde: h2 başlık rengi */
         .mission-heading {
-            font-size: 19px; /* Biraz daha küçük ve dengeli */
+            font-size: 19px;
             color: #32CD32;
             margin-bottom: 8px;
         }
@@ -60,18 +74,18 @@
             margin-bottom: 35px;
         }
 
-        /* 5. Madde: ID ile stillendirilen Upcoming Events başlığı */
+        /* 5. Madde: ID ile arka planı sarı (#FFFFE0) yapılan Upcoming Events başlığı */
         #upcoming-events {
             font-size: 20px;
             color: #FFA07A;
-            background-color: #FFFFE0; /* Belgede istenen sarı arka plan */
+            background-color: #FFFFE0;
             padding: 8px 15px;
             border-radius: 6px;
             display: inline-block;
             margin-bottom: 20px;
         }
 
-        /* 5 günlük etkinlik ızgarası (Grid) */
+        /* 5 Günlük Takvim Izgarası (Grid) */
         .schedule-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -84,6 +98,8 @@
             border: 1px solid #30363d;
             border-radius: 8px;
             padding: 14px;
+            display: flex;
+            flex-direction: column;
         }
 
         .day-column h3 {
@@ -102,34 +118,35 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
+            flex-grow: 1;
         }
 
         .day-column li {
             font-size: 13px;
             line-height: 1.4;
             color: #c9d1d9;
-            padding: 6px 8px;
+            padding: 8px;
             border-radius: 4px;
             background-color: #0d1117;
             border: 1px solid #21262d;
         }
 
-        /* 5. Madde: Açık hava etkinlikleri (.outdoor class) stilleri */
+        /* 5. Madde: Açık hava etkinlikleri (.outdoor class) kuralı */
         .outdoor {
             background-color: #AFEEEE !important;
-            color: #003333 !important; /* Açık renkte metin okunurluğu için */
+            color: #003333 !important;
             padding: 5px;
             border: 1px solid #B0E0E6;
         }
 
-        /* 7. Madde: En altta bulunan Contact Us (.section class) stilleri */
+        /* 7. Madde: Sayfanın en altındaki Contact Us kutusu (.section class) */
         .section {
-            background-color: #f8f3f3; /* Belgede istenen açık ton */
-            padding: 10px;
+            background-color: #f8f3f3;
+            padding: 15px 10px;
             width: 100%;
             margin-top: auto;
             border-top: 3px solid #20B2AA;
-            color: #222222; /* Koyu metin rengi */
+            color: #222222;
         }
 
         .section-inner {
@@ -170,98 +187,102 @@
 <body>
 
     <div class="main-wrapper">
-        <!-- 1. Ortalanmış Ana Başlık -->
-        <h1>Sunnydale School</h1>
-
-        <!-- 2. Mission Statement (Aynı yerinde, boyutu dengelenmiş) -->
-        <h2 class="mission-heading">Mission Statement</h2>
-        <div class="mission-box">
-            Our mission is to foster a nurturing and inspiring environment where every student can achieve their full potential, develop critical thinking, and lead with empathy.
+        <!-- 1. Ortalanmış Piri Reis Üniversitesi Logosu ve Başlığı -->
+        <div class="brand-header">
+            <img src="https://upload.wikimedia.org/wikipedia/tr/6/69/Piri_Reis_%C3%9Cniversitesi_logosu.png" alt="Piri Reis Üniversitesi Logosu" class="university-logo">
+            <h1>Piri Reis Üniversitesi</h1>
         </div>
 
-        <!-- 5. Upcoming Events Başlığı -->
+        <!-- 2. Mission Statement (Sol tarafta, dengeli boyutta) -->
+        <h2 class="mission-heading">Mission Statement</h2>
+        <div class="mission-box">
+            Piri Reis Üniversitesi, denizcilik başta olmak üzere bilim, teknoloji ve yönetim alanlarında uluslararası standartlarda eğitim vererek geleceğin yenilikçi liderlerini yetiştirmeyi amaçlar.
+        </div>
+
+        <!-- 5. ID eklenmiş Upcoming Events Başlığı -->
         <h2 id="upcoming-events">Upcoming Events</h2>
 
-        <!-- 5 Günlük Etkinlik Programı (Her günde 2 etkinlik) -->
+        <!-- 5 Günlük Program -->
         <div class="schedule-grid">
-            <!-- Gün 1 -->
+            <!-- Day 1 -->
             <div class="day-column">
-                <h3>Day 1 - Monday</h3>
+                <h3>Day 1 - Pazartesi</h3>
                 <ul>
                     <li data-event-type="indoor" title="Event Type: Indoor">
-                        Science Fair - <span style="font-weight: bold; color: red;">June 10</span>
+                        Web Tasarımı - <span style="font-weight: bold; color: red;">09:00 - 12:00</span>
                     </li>
                     <li data-event-type="indoor" title="Event Type: Indoor">
-                        Math Olympiad - <span style="font-weight: bold; color: red;">June 10</span>
+                        Laboratuvar Uygulaması - <span style="font-weight: bold; color: red;">13:00 - 15:00</span>
                     </li>
                 </ul>
             </div>
 
-            <!-- Gün 2 -->
+            <!-- Day 2 -->
             <div class="day-column">
-                <h3>Day 2 - Tuesday</h3>
+                <h3>Day 2 - Salı</h3>
                 <ul>
-                    <li class="outdoor" data-event-type="outdoor" title="Event Type: Outdoor">
-                        Art Exhibition - <span style="font-weight: bold; color: red;">June 15</span>
+                    <li data-event-type="indoor" title="Event Type: Indoor">
+                        İstatistik - <span style="font-weight: bold; color: red;">09:00 - 12:00</span>
                     </li>
                     <li data-event-type="indoor" title="Event Type: Indoor">
-                        Debate Session - <span style="font-weight: bold; color: red;">June 15</span>
+                        Muhasebe - <span style="font-weight: bold; color: red;">12:00 - 15:00</span>
                     </li>
                 </ul>
             </div>
 
-            <!-- Gün 3 -->
+            <!-- Day 3 -->
             <div class="day-column">
-                <h3>Day 3 - Wednesday</h3>
+                <h3>Day 3 - Çarşamba</h3>
                 <ul>
-                    <li class="outdoor" data-event-type="outdoor" title="Event Type: Outdoor">
-                        Sports Day - <span style="font-weight: bold; color: red;">June 20</span>
+                    <li data-event-type="indoor" title="Event Type: Indoor">
+                        Yönetim ve Organizasyon - <span style="font-weight: bold; color: red;">09:00 - 12:00</span>
                     </li>
+                    <!-- Yönergedeki .outdoor gereksinimini korumak için kampüs etkinliği -->
                     <li class="outdoor" data-event-type="outdoor" title="Event Type: Outdoor">
-                        Archery Match - <span style="font-weight: bold; color: red;">June 20</span>
+                        Kampüs Kulüp Buluşması - <span style="font-weight: bold; color: red;">13:30 - 15:00</span>
                     </li>
                 </ul>
             </div>
 
-            <!-- Gün 4 -->
+            <!-- Day 4 -->
             <div class="day-column">
-                <h3>Day 4 - Thursday</h3>
+                <h3>Day 4 - Perşembe</h3>
                 <ul>
                     <li data-event-type="indoor" title="Event Type: Indoor">
-                        Robotics Demo - <span style="font-weight: bold; color: red;">June 24</span>
+                        Algoritma ve Programlama - <span style="font-weight: bold; color: red;">12:00 - 15:00</span>
                     </li>
                     <li class="outdoor" data-event-type="outdoor" title="Event Type: Outdoor">
-                        Campus Run - <span style="font-weight: bold; color: red;">June 24</span>
+                        Açık Hava Spor Etkinliği - <span style="font-weight: bold; color: red;">15:30 - 17:00</span>
                     </li>
                 </ul>
             </div>
 
-            <!-- Gün 5 -->
+            <!-- Day 5 -->
             <div class="day-column">
-                <h3>Day 5 - Friday</h3>
+                <h3>Day 5 - Cuma</h3>
                 <ul>
                     <li data-event-type="indoor" title="Event Type: Indoor">
-                        Music Recital - <span style="font-weight: bold; color: red;">June 28</span>
+                        Free Day - <span style="font-weight: bold; color: red;">Tüm Gün</span>
                     </li>
-                    <li class="outdoor" data-event-type="outdoor" title="Event Type: Outdoor">
-                        Gala Picnic - <span style="font-weight: bold; color: red;">June 28</span>
+                    <li data-event-type="indoor" title="Event Type: Indoor">
+                        Serbest Çalışma & Kütüphane - <span style="font-weight: bold; color: red;">10:00 - 17:00</span>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <!-- 7. Sayfanın en altına konumlandırılmış Contact Us Kutusu (.section class) -->
+    <!-- 7. Sayfanın en altındaki Contact Us Bölümü (.section class) -->
     <div class="section">
         <div class="section-inner">
             <div>
                 <h2 class="contact-heading">Contact Us</h2>
-                <small style="color: #666;">Sunnydale Central Administration Office</small>
+                <small style="color: #666;">Piri Reis Üniversitesi Tuzla Kampüsü</small>
             </div>
-            <!-- 4. Tooltip (title attribute) ve iletişim verileri -->
+            <!-- 4. Tooltip (title attribute) eklenmiş iletişim verileri -->
             <div class="contact-details">
-                <p>Email: <a href="mailto:info@sunnydale.edu" title="Click to copy email">info@sunnydale.edu</a></p>
-                <p>Phone: <span style="cursor: pointer;" title="Click to copy email">(555) 123-4567</span></p>
+                <p>Email: <a href="mailto:info@pirireis.edu.tr" title="Click to copy email">info@pirireis.edu.tr</a></p>
+                <p>Phone: <span style="cursor: pointer;" title="Click to copy email">+90 (216) 581 00 50</span></p>
             </div>
         </div>
         <!-- 4. Yönergede istenen JavaScript davranışı açıklama yorumu -->
