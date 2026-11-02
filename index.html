@@ -40,24 +40,14 @@
             border-bottom: 2px solid #222d3d;
         }
 
-        /* CSS ile logonun şık ve yuvarlak durması */
-        .university-logo-badge {
+        .university-logo {
             width: 55px;
             height: 55px;
+            object-fit: contain;
             border-radius: 50%;
-            background-color: #003066;
-            border: 2px solid #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            box-shadow: 0 0 10px rgba(0, 48, 102, 0.5);
-        }
-
-        .university-logo-badge svg {
-            width: 38px;
-            height: 38px;
-            fill: #ffffff;
+            background-color: #ffffff;
+            padding: 2px;
+            display: block;
         }
 
         h1 {
@@ -198,17 +188,9 @@
 <body>
 
     <div class="main-wrapper">
-        <!-- 1. Başlık ve Doğrudan Kodun İçinde Oluşturulmuş Piri Reis Amblemi -->
+        <!-- 1. Ortalanmış Piri Reis Üniversitesi Logosu ve Başlığı -->
         <div class="brand-header">
-            <div class="https://pirireis.edu.tr/en/wp-content/uploads/2025/01/Pru-Logo-Ingilizce-1-1-1.png" title="Piri Reis Üniversitesi">
-                <!-- Vektörel Deniz Çapası ve Pergel Simgesi (Dış dosya gerektirmez, daima görünür) -->
-                <svg viewBox="0 0 24 24">
-                    <circle cx="12" cy="4" r="2" fill="none" stroke="#ffffff" stroke-width="2"/>
-                    <line x1="12" y1="6" x2="12" y2="20" stroke="#ffffff" stroke-width="2"/>
-                    <line x1="6" y1="10" x2="18" y2="10" stroke="#ffffff" stroke-width="2"/>
-                    <path d="M5 14 C5 19, 19 19, 19 14" fill="none" stroke="#ffffff" stroke-width="2"/>
-                </svg>
-            </div>
+            <img src="https://pirireis.edu.tr/en/wp-content/uploads/2025/01/Pru-Logo-Ingilizce-1-1-1.png" alt="Piri Reis Üniversitesi Logosu" class="university-logo">
             <h1>Piri Reis Üniversitesi</h1>
         </div>
 
@@ -301,3 +283,11 @@
             <div class="contact-details">
                 <p>Email: <a href="mailto:info@pirireis.edu.tr" title="Click to copy email">info@pirireis.edu.tr</a></p>
                 <p>Phone: <span style="cursor: pointer;" title="Click to copy email">+90 (216) 581 00 50</span></p>
+            </div>
+        </div>
+        <!-- 4. Yönergede istenen JavaScript davranışı açıklama yorumu -->
+        <!-- Imagine clicking here shows a message: 'Thanks for reaching out!' -->
+    </div>
+
+</body>
+</html>
